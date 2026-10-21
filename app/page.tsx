@@ -50,7 +50,7 @@ export default function Home() {
             <img
               src="/profile-pic.jpg"
               alt="Nicolas Verne"
-              className="aspect-[4/5] w-full max-w-[300px] rounded-lg object-cover md:max-w-none"
+              className="aspect-[3/5] w-full max-w-[300px] rounded-lg object-cover md:max-w-none"
             />
 
             <div>
