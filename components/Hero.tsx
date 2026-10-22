@@ -37,8 +37,9 @@ export default function Hero() {
                 {/* Campfire illustration */}
                 <div
                     aria-hidden="true"
-                    className="relative mx-auto h-72 w-full max-w-sm"
+                    className="relative mx-auto h-72 w-full max-w-sm origin-center scale-110 lg:-translate-y-8 lg:scale-125"
                 >
+                    <div className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full border border-red-100 bg-gradient-to-br from-orange-50 to-red-50/40" />
                     {/* Soft glow */}
                     <div className="absolute bottom-5 left-1/2 h-44 w-44 -translate-x-1/2 rounded-full bg-orange-400/15 blur-3xl" />
 
