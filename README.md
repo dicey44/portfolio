@@ -123,4 +123,4 @@ AIを開発のサポートに使うだけでなく、ユーザーの課題を解
 ## 連絡先
 
 - [GitHub](https://github.com/dicey44)
-- [LinkedIn]：(https://linkedin.com/in/nicolas-ryan)
+- [LinkedIn](https://linkedin.com/in/nicolas-ryan)
