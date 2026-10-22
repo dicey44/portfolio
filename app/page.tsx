@@ -36,7 +36,7 @@ export default function Home() {
       </section>
       <section
         id="profile"
-        className="scroll-mt-24 border-t border-slate-200 bg-slate-50"
+        className="scroll-mt-24 border-t border-b border-slate-200 bg-slate-50"
       >
         <div className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24">
           <p className="text-xs font-semibold tracking-[0.25em] text-red-600">
@@ -103,6 +103,133 @@ export default function Home() {
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      
+      <section id="works" className="scroll-mt-24 bg-[#f6f7f9]">
+        <div className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24">
+          <div className="flex items-end justify-between gap-6">
+            <div>
+              <p className="text-xs font-medium tracking-[0.2em] text-slate-400">
+                SELECTED WORKS
+              </p>
+              <h2 className="mt-4 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+                制作実績
+              </h2>
+            </div>
+
+            <a
+              href="https://github.com/dicey44"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 text-sm text-slate-700 underline-offset-4 hover:underline"
+            >
+              GitHub ↗
+            </a>
+          </div>
+
+          <div className="mt-10 grid gap-x-8 gap-y-12 md:mt-12 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                name: "OrderCraft",
+                image: "/ordercraft-home.png",
+                alt: "OrderCraftの受注管理画面",
+                background: "bg-[#e4edf5]",
+                description:
+                  "検索・作成・更新・削除に対応した、業務向け受注管理アプリケーション。",
+                technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vitest"],
+                site: "https://order-craft-phi.vercel.app/",
+                github: "https://github.com/dicey44/order-craft",
+              },
+              {
+                name: "OsakaMove",
+                image: "/osakamove-home.png",
+                alt: "OsakaMoveの物件検索画面",
+                background: "bg-[#e0e9e5]",
+                description:
+                  "自然な言葉で希望条件を入力し、大阪の物件を探せるAI活用アプリ。",
+                technologies: ["React", "TypeScript", "Node.js", "OpenAI API"],
+                site: "https://dicey44.github.io/osakamove/",
+                github: "https://github.com/dicey44/osakamove",
+              },
+              {
+                name: "MiMart",
+                image: "/mimart-home.png",
+                alt: "MiMartの商品一覧画面",
+                background: "bg-[#ece5df]",
+                description:
+                  "商品検索・絞り込み・カート機能を備えた、日英対応のレスポンシブECサイト。",
+                technologies: ["React", "TypeScript", "REST API", "CSS"],
+                site: "https://dicey44.github.io/mini-ecommerce-site/",
+                github: "https://github.com/dicey44/mini-ecommerce-site/",
+              },
+            ].map((project) => (
+              <article key={project.name} className="flex min-w-0 flex-col">
+                <a
+                  href={project.site}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${project.name}のサイトを見る`}
+                  className={`group block aspect-[8/5] overflow-hidden rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-700 ${project.background}`}
+                >
+                  <img
+                    src={project.image}
+                    alt={project.alt}
+                    loading="lazy"
+                    className="h-full w-full object-cover object-top transition-transform duration-300 motion-safe:group-hover:scale-105"
+                  />
+                </a>
+
+                <h3 className="mt-6 text-xl font-bold tracking-tight text-slate-900">
+                  <a
+                    href={project.site}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between gap-4 transition-colors hover:text-red-600"
+                  >
+                    {project.name}
+                  </a>
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-slate-500">
+                  {project.description}
+                </p>
+
+                <div className="mt-auto pt-6">
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((technology) => (
+                      <span
+                        key={technology}
+                        className="rounded-sm bg-[#eaf0f4] px-2.5 py-1.5 text-xs text-slate-500"
+                      >
+                        {technology}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-6 flex flex-wrap items-center gap-3">
+                    <a
+                      href={project.site}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-3 rounded-md bg-red-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-600"
+                    >
+                      サイトを見る
+                    </a>
+
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-3 rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-900 hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900"
+                    >
+                      ソースコード
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
