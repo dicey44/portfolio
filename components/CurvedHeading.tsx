@@ -1,10 +1,20 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import type { PointerEvent } from "react";
 
 export default function CurvedHeading() {
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const frameRef = useRef<number | null>(null);
+  const pointerRef = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    return () => {
+      if (frameRef.current !== null) {
+        cancelAnimationFrame(frameRef.current);
+      }
+    };
+  }, []);
 
   function handlePointerMove(event: PointerEvent<HTMLHeadingElement>) {
     if (
@@ -14,38 +24,54 @@ export default function CurvedHeading() {
       return;
     }
 
-    const heading = headingRef.current;
-    if (!heading) return;
+    pointerRef.current = {
+      x: event.clientX,
+      y: event.clientY,
+    };
 
-    const letters = heading.querySelectorAll<HTMLSpanElement>(
-      "[data-letter]"
-    );
+    if (frameRef.current !== null) return;
 
-    letters.forEach((letter) => {
-      // Measure the stationary wrapper, so movement doesn't affect calculations.
-      const bounds = letter.getBoundingClientRect();
-      const centerX = bounds.left + bounds.width / 2;
-      const centerY = bounds.top + bounds.height / 2;
+    frameRef.current = requestAnimationFrame(() => {
+      frameRef.current = null;
 
-      const distanceX = event.clientX - centerX;
-      const distanceY = event.clientY - centerY;
+      const heading = headingRef.current;
+      if (!heading) return;
 
-      const influence = Math.exp(
-        -(distanceX ** 2 / 180 ** 2 + distanceY ** 2 / 110 ** 2)
-      );
+      const letters =
+        heading.querySelectorAll<HTMLSpanElement>("[data-letter]");
 
-      const direction = Math.tanh(distanceY / 35);
-      const offset = -direction * influence * 24;
-      const rotation = direction * influence * (distanceX / 180) * 12;
+      // Read positions before updating any styles.
+      const updates = Array.from(letters).map((letter) => {
+        const bounds = letter.getBoundingClientRect();
+        const dx = pointerRef.current.x - (bounds.left + bounds.width / 2);
+        const dy = pointerRef.current.y - (bounds.top + bounds.height / 2);
 
-      const character = letter.firstElementChild as HTMLSpanElement;
+        const influence = Math.exp(
+          -(dx ** 2 / 180 ** 2 + dy ** 2 / 110 ** 2)
+        );
 
-      character.style.transform =
-        `translateY(${offset}px) rotate(${rotation}deg)`;
+        const direction = Math.tanh(dy / 45);
+
+        return {
+          character: letter.firstElementChild as HTMLSpanElement,
+          offset: -direction * influence * 18,
+          rotation: direction * influence * (dx / 180) * 8,
+        };
+      });
+
+      updates.forEach(({ character, offset, rotation }) => {
+        character.style.transform =
+          `translateY(${offset}px) rotate(${rotation}deg)`;
+      });
     });
   }
 
   function resetLetters() {
+    if (frameRef.current !== null) {
+      cancelAnimationFrame(frameRef.current);
+      frameRef.current = null;
+    }
+
     headingRef.current
       ?.querySelectorAll<HTMLSpanElement>("[data-character]")
       .forEach((character) => {
@@ -63,19 +89,23 @@ export default function CurvedHeading() {
       className="text-3xl font-bold leading-[1.6] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
     >
       {["使いやすく､", "伝わるWebをつくる｡"].map((line) => (
-        <span key={line} aria-hidden="true" className="block">
+        <span
+          key={line}
+          aria-hidden="true"
+          className="pointer-events-none block"
+        >
           {Array.from(line).map((character, index) => (
             <span
-                key={`${line}-${index}`}
-                data-letter
-                className="inline-block align-top"
-                >
-                <span
-                    data-character
-                    className="inline-block align-top transition-transform duration-300 ease-out motion-reduce:transform-none motion-reduce:transition-none"
-                >
-                    {character}
-                </span>
+              key={`${line}-${index}`}
+              data-letter
+              className="inline-block align-top"
+            >
+              <span
+                data-character
+                className="inline-block align-top transition-transform duration-150 ease-out"
+              >
+                {character}
+              </span>
             </span>
           ))}
         </span>

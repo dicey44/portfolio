@@ -1,4 +1,4 @@
-import "@/app/globals.css"
+import "../app/globals.css"
 import CurvedHeading from "@/components/CurvedHeading"
 
 export default function Hero() {
@@ -34,16 +34,34 @@ export default function Hero() {
                         REACT / TYPESCRIPT / NEXT.JS
                     </p>
                 </div>
-
+                {/* Campfire illustration */}
                 <div
-                aria-hidden="true"
-                className="relative mx-auto h-72 w-full max-w-sm"
+                    aria-hidden="true"
+                    className="relative mx-auto h-72 w-full max-w-sm"
                 >
-                <div className="absolute inset-x-8 bottom-8 h-px bg-slate-200" />
+                    {/* Soft glow */}
+                    <div className="absolute bottom-5 left-1/2 h-44 w-44 -translate-x-1/2 rounded-full bg-orange-400/15 blur-3xl" />
 
-                <div className="hero-ball-shadow absolute bottom-6 left-1/2 -ml-10 h-3 w-20 rounded-full bg-slate-900 blur-sm" />
+                    {/* Ground shadow */}
+                    <div className="absolute bottom-6 left-1/2 h-4 w-40 -translate-x-1/2 rounded-full bg-slate-900/10 blur-md" />
 
-                <div className="hero-ball absolute bottom-8 left-1/2 -ml-10 h-20 w-20 rounded-full bg-[radial-gradient(circle_at_30%_25%,#fca5a5_0%,#ef4444_35%,#b91c1c_75%,#7f1d1d_100%)] shadow-[inset_-8px_-8px_16px_rgba(0,0,0,0.15)]" />
+                    {/* Flames */}
+                    <div className="absolute bottom-12 left-1/2 h-40 w-28 -translate-x-1/2">
+                        <div className="campfire-flame campfire-flame-outer absolute inset-x-0 bottom-0 h-36 rounded-[70%_30%_55%_45%/65%_40%_60%_35%] bg-gradient-to-t from-red-600 via-orange-500 to-orange-300" />
+
+                        <div className="campfire-flame campfire-flame-middle absolute bottom-0 left-5 h-28 w-20 rounded-[40%_60%_45%_55%/60%_45%_55%_40%] bg-gradient-to-t from-orange-500 via-amber-400 to-yellow-200" />
+
+                        <div className="campfire-flame campfire-flame-inner absolute bottom-0 left-9 h-16 w-12 rounded-[60%_40%_50%_50%/65%_50%_50%_35%] bg-gradient-to-t from-amber-200 to-yellow-50" />
+
+                        {/* Rising sparks */}
+                        <span className="campfire-spark absolute bottom-12 left-5 h-1 w-1 rounded-full bg-orange-400" />
+                        <span className="campfire-spark campfire-spark-two absolute bottom-12 left-14 h-1.5 w-1.5 rounded-full bg-amber-400" />
+                        <span className="campfire-spark campfire-spark-three absolute bottom-12 right-4 h-1 w-1 rounded-full bg-red-400" />
+                    </div>
+
+                    {/* Logs */}
+                    <div className="absolute bottom-8 left-1/2 h-5 w-32 -translate-x-1/2 rotate-[18deg] rounded-full border border-amber-950/30 bg-gradient-to-b from-amber-800 to-amber-950" />
+                    <div className="absolute bottom-8 left-1/2 h-5 w-32 -translate-x-1/2 -rotate-[18deg] rounded-full border border-amber-950/30 bg-gradient-to-b from-amber-700 to-amber-950" />
                 </div>
             </div>
             <a
