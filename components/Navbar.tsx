@@ -16,33 +16,21 @@ function Navbar() {
         </Link>
 
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm font-medium text-slate-600 md:gap-x-8">
-          <Link
-            href="/#profile"
-            className="transition-colors hover:text-red-600"
-          >
+          <a href="#profile" className="transition-colors hover:text-red-600">
             プロフィール
-          </Link>
+          </a>
 
-          <Link
-            href="/#works"
-            className="transition-colors hover:text-red-600"
-          >
+          <a href="#works" className="transition-colors hover:text-red-600">
             制作実績
-          </Link>
+          </a>
 
-          <Link
-            href="/#skills"
-            className="transition-colors hover:text-red-600"
-          >
+          <a href="#skills" className="transition-colors hover:text-red-600">
             スキル
-          </Link>
+          </a>
 
-          <Link
-            href="/#contact"
-            className="transition-colors hover:text-red-600"
-          >
+          <a href="#contact" className="transition-colors hover:text-red-600">
             お問い合わせ
-          </Link>
+          </a>
         </div>
       </nav>
     </header>
