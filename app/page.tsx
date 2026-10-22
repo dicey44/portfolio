@@ -299,7 +299,7 @@ export default function Home() {
 
             <div className="mt-7 flex flex-wrap gap-4">
               <a
-                href="https://www.linkedin.com/in/YOUR-PROFILE/"
+                href="https://linkedin.com/in/nicolas-ryan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-5 rounded-md bg-red-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-600"
