@@ -32,11 +32,6 @@
   animation: ball-shadow 1.8s infinite;
 }
 
-/*
-@media (prefers-reduced-motion: reduce) {
-  .hero-ball,
-  .hero-ball-shadow {
-    animation: none;
-  }
+html {
+    scroll-behavior: smooth;
 }
-*/

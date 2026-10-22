@@ -1,19 +1,20 @@
 import "@/app/globals.css"
+import CurvedHeading from "@/components/CurvedHeading"
 
 export default function Hero() {
     return (
-        <section id="hero" className="overflow-hidden bg-white">
-            <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:px-10 md:py-32 lg:grid-cols-[1.4fr_1fr]">
+        <section
+            id="hero"
+            className="relative flex min-h-[calc(100svh-9rem)] items-center overflow-hidden bg-white md:min-h-[calc(100svh-6rem)]"
+        >
+        <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-6 py-16 md:px-10 lg:grid-cols-[1.4fr_1fr]">
                 <div>
                     <div className="max-w-3xl">
                         <p className="mb-6 text-xs font-semibold tracking-[0.25em] text-red-600 md:text-sm">
                         FRONTEND DEVELOPER
                         </p>
 
-                        <h1 className="text-3xl font-bold leading-[1.6] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-                        <span className="block">使いやすく、</span>
-                        <span className="block">伝わるWebをつくる。</span>
-                        </h1>
+                        <CurvedHeading />
 
                         <div className="mt-8 space-y-2 text-sm leading-relaxed text-slate-600 md:text-base">
                         <p>React・TypeScript・Next.jsで、</p>
@@ -45,6 +46,22 @@ export default function Hero() {
                 <div className="hero-ball absolute bottom-8 left-1/2 -ml-10 h-20 w-20 rounded-full bg-[radial-gradient(circle_at_30%_25%,#fca5a5_0%,#ef4444_35%,#b91c1c_75%,#7f1d1d_100%)] shadow-[inset_-8px_-8px_16px_rgba(0,0,0,0.15)]" />
                 </div>
             </div>
+            <a
+                href="#profile"
+                aria-label="プロフィールへスクロール"
+                className="absolute bottom-6 left-1/2 flex h-11 w-11 -translate-x-1/2 items-center justify-center rounded-full border border-slate-300 text-slate-500 transition-colors hover:border-red-600 hover:text-red-600 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-600"
+            >
+            <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.5}
+                className="h-5 w-5 motion-safe:animate-bounce"
+            >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m-6-6 6 6 6-6" />
+            </svg>
+            </a>
         </section>
     )
 }
