@@ -233,6 +233,78 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section id="skills" className="scroll-mt-24 bg-white">
+        <div className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24">
+          <p className="text-xs font-medium tracking-[0.2em] text-slate-400">
+            TECHNICAL SKILLS
+          </p>
+          <h2 className="mt-4 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+            スキル
+          </h2>
+
+          <div className="mt-10 grid gap-6 md:mt-12 lg:grid-cols-3">
+            {[
+              {
+                title: "フロントエンド",
+                skills: [
+                  { name: "HTML", symbol: "5", color: "text-orange-600" },
+                  { name: "CSS", symbol: "#", color: "text-sky-600" },
+                  { name: "JavaScript", symbol: "JS", color: "text-yellow-600" },
+                  { name: "TypeScript", symbol: "TS", color: "text-blue-800" },
+                  { name: "React", symbol: "⚛", color: "text-cyan-600" },
+                  { name: "Next.js", symbol: "N", color: "text-slate-900" },
+                ],
+              },
+              {
+                title: "UI・状態管理",
+                skills: [
+                  { name: "Tailwind CSS", symbol: "≈", color: "text-cyan-500" },
+                  { name: "Bootstrap", symbol: "B", color: "text-purple-600" },
+                  { name: "Context API", symbol: "◎", color: "text-blue-800" },
+                ],
+              },
+              {
+                title: "開発ツール・テスト",
+                skills: [
+                  { name: "Git", symbol: "⑂", color: "text-red-500" },
+                  { name: "GitHub", symbol: "GH", color: "text-slate-800" },
+                  { name: "Vitest", symbol: "V", color: "text-green-600" },
+                  { name: "Testing Library", symbol: "RTL", color: "text-blue-800" },
+                ],
+              },
+            ].map((category) => (
+              <div
+                key={category.title}
+                className="border border-slate-200 p-6 md:p-7"
+              >
+                <h3 className="text-sm font-bold text-slate-900">
+                  {category.title}
+                </h3>
+
+                <ul className="mt-8 flex flex-wrap gap-x-4 gap-y-7">
+                  {category.skills.map((skill) => (
+                    <li
+                      key={skill.name}
+                      className="flex w-[68px] flex-col items-center gap-3"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className={`flex h-11 w-11 items-center justify-center rounded-md border border-slate-200 text-lg font-semibold ${skill.color}`}
+                      >
+                        {skill.symbol}
+                      </span>
+
+                      <span className="text-center text-xs leading-5 text-slate-600">
+                        {skill.name}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
