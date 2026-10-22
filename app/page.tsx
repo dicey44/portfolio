@@ -1,10 +1,11 @@
 import Hero from "@/components/Hero";
+import RevealSection from "@/components/RevealSection";
 
 export default function Home() {
   return (
     <div>
       <Hero />
-      <section
+      <RevealSection
         id="profile"
         className="scroll-mt-24 border-t border-b border-slate-200 bg-slate-50"
       >
@@ -75,9 +76,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </RevealSection>
       
-      <section id="works" className="scroll-mt-24 bg-white">
+      <RevealSection id="works" className="scroll-mt-24 bg-white">
         <div className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24">
           <div className="flex items-end justify-between gap-6">
             <div>
@@ -203,8 +204,8 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
-      <section id="skills" className="scroll-mt-24 bg-[#f6f7f9]">
+      </RevealSection>
+      <RevealSection id="skills" className="scroll-mt-24 bg-[#f6f7f9]">
         <div className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-24">
           <p className="text-xs font-medium tracking-[0.2em] text-slate-400">
             TECHNICAL SKILLS
@@ -275,8 +276,8 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
-      <section
+      </RevealSection>
+      <RevealSection
         id="contact"
         className="scroll-mt-24 border-t border-slate-200 bg-white"
       >
@@ -370,7 +371,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </RevealSection>
     </div>
   );
 }
