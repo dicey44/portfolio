@@ -1,39 +1,9 @@
-
+import Hero from "@/components/Hero";
 
 export default function Home() {
   return (
     <div>
-      <section id="hero" className="bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-32">
-          <div className="max-w-3xl">
-            <p className="mb-6 text-xs font-semibold tracking-[0.25em] text-red-600 md:text-sm">
-              FRONTEND DEVELOPER
-            </p>
-
-            <h1 className="text-3xl font-bold leading-[1.6] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-              <span className="block">使いやすく、</span>
-              <span className="block">伝わるWebをつくる。</span>
-            </h1>
-
-            <div className="mt-8 space-y-2 text-sm leading-relaxed text-slate-600 md:text-base">
-              <p>React・TypeScript・Next.jsで、</p>
-              <p>日々の課題を解決するWebアプリケーションを。</p>
-              <p>日本で、フロントエンドエンジニアとして次の一歩へ。</p>
-            </div>
-          </div>
-
-          <a
-            href="#works"
-            className="mt-10 inline-flex items-center gap-6 rounded-md bg-red-600 px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-600"
-          >
-            制作実績を見る
-          </a>
-
-          <p className="mt-14 text-xs font-medium tracking-[0.18em] text-slate-400 md:mt-20">
-            REACT / TYPESCRIPT / NEXT.JS
-          </p>
-        </div>
-      </section>
+      <Hero />
       <section
         id="profile"
         className="scroll-mt-24 border-t border-b border-slate-200 bg-slate-50"
