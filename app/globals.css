@@ -69,21 +69,19 @@ html {
 }
 
 
-@media (prefers-reduced-motion: no-preference) {
-  [data-reveal] > .section-reveal-content {
-    transition:
-      opacity 700ms ease,
-      transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
-  }
+[data-reveal] > .section-reveal-content {
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
 
-  [data-reveal="pending"] > .section-reveal-content {
-    opacity: 0;
-    transform: translateY(28px);
-  }
+[data-reveal="pending"] > .section-reveal-content {
+  opacity: 0;
+  transform: translateY(28px);
+}
 
-  [data-reveal="visible"] > .section-reveal-content,
-  [data-reveal="pending"]:focus-within > .section-reveal-content {
-    opacity: 1;
-    transform: translateY(0);
-  }
+[data-reveal="visible"] > .section-reveal-content,
+[data-reveal="pending"]:focus-within > .section-reveal-content {
+  opacity: 1;
+  transform: translateY(0);
 }
